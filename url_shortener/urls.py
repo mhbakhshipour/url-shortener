@@ -18,9 +18,11 @@ from django.urls import path, include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from client.urls import client_urlpatterns
+from url.urls import url_urlpatterns
 
 api_urlpatters = [
     path("client/", include(client_urlpatterns)),
+    path("url/", include(url_urlpatterns)),
 ]
 
 urlpatterns = [

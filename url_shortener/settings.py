@@ -20,6 +20,7 @@ load_dotenv(find_dotenv())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_URL = env.str('BASE_URL', None)
 
 
 # Quick-start development settings - unsuitable for production
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # Apps
     "client",
+    "url",
 ]
 
 MIDDLEWARE = [
@@ -154,6 +156,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     'PAGE_SIZE': 10,
 }
 if not DEBUG:
