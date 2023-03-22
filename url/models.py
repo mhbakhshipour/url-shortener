@@ -17,7 +17,7 @@ class Url(models.Model):
         is_new = self.pk is None
 
         if is_new and not self.short_url:
-            self.short_url = "{}/{}".format(settings.BASE_URL,
-                                            uuid.uuid4().hex[:6])
+            self.short_url = "{}/url/short-url/{}".format(settings.BASE_URL,
+                                                          uuid.uuid4().hex[:6])
 
         return super(Url, self).save(*args, **kwargs)

@@ -1,5 +1,6 @@
-from rest_framework import viewsets
-from rest_framework import permissions
+from rest_framework import viewsets, permissions
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 from url.models import Url
 from url.serializers import UrlSerializer
@@ -24,3 +25,16 @@ class UrlViewSet(viewsets.ModelViewSet):
 
     def get_serializer_context(self):
         return {"request": self.request}
+
+
+class ShortUrlViewSet(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request, path, format=None):
+        try:
+            url = Url.objects.get(short_url=request.build_absolute_uri())
+        except Url.DoesNotExist:
+            return Response({"message": "Not found"}, 404)
+
+        res = UrlSerializer(url).data
+        return Response(res)
