@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "drf_yasg",
+    "rest_framework_simplejwt",
     # Apps
     "client",
     "url",
@@ -151,6 +152,7 @@ REST_FRAMEWORK = {
         "user": "10000/day",
     },
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
@@ -164,3 +166,10 @@ if not DEBUG:
     ]
     SESSION_COOKIE_SECURE = True
     SESSION_COOKIE_HTTPONLY = True
+
+# Swagger
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Token": {"type": "apiKey", "name": "Authorization", "in": "header"}
+    }
+}
