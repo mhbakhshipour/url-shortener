@@ -88,11 +88,10 @@ WSGI_APPLICATION = "url_shortener.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env.str('POSTGRES_NAME', None),
+        'NAME': env.str('POSTGRES_DB', None),
         'USER': env.str('POSTGRES_USER', None),
         'PASSWORD': env.str('POSTGRES_PASSWORD', None),
         'HOST': env.str('POSTGRES_HOST', None),
-        'PORT': env.int('POSTGRES_PORT', None),
     }
 }
 

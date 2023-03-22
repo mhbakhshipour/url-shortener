@@ -6,11 +6,6 @@ __pycache__/
 *.egg-info/
 *.egg
 
-# Ignore Docker specific files
-docker-compose.override.yml
-docker-compose.prod.yml
-.dockerignore
-
 # Ignore local development settings
 *.env
 
