@@ -11,4 +11,7 @@ Open a terminal in the root directory of the cloned repository and build the Doc
 ```
 docker-compose up
 ```
-Access the URL shortener app in your web browser at http://127.0.0.1:8000/swagger/.
+Access the URL shortener app in your web browser at: http://127.0.0.1:8000/swagger/.
+
+OR Access to front view at:
+http://127.0.0.1:8000/register

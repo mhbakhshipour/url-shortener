@@ -23,6 +23,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from client.urls import client_urlpatterns
 from url.urls import url_urlpatterns
+from front_view.urls import front_view_urlpatters
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -53,5 +54,6 @@ urlpatterns = [
             cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^redoc/$', schema_view.with_ui('redoc',
             cache_timeout=0), name='schema-redoc'),
+    path("", include(front_view_urlpatters)),
 ]
 urlpatterns += staticfiles_urlpatterns()
