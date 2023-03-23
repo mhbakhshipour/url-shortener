@@ -8,7 +8,7 @@ class UrlSerializer(serializers.ModelSerializer):
     class Meta:
         model = Url
         fields = "__all__"
-        read_only_fields = ["creator", "short_url"]
+        read_only_fields = ["creator", "short_url_id"]
 
     def to_representation(self, instance):
         response = super().to_representation(instance)

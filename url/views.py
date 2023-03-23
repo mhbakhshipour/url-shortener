@@ -32,7 +32,7 @@ class ShortUrlViewSet(APIView):
 
     def get(self, request, path, format=None):
         try:
-            url = Url.objects.get(short_url=request.build_absolute_uri())
+            url = Url.objects.get(short_url_id=path)
         except Url.DoesNotExist:
             return Response({"message": "Not found"}, 404)
 
