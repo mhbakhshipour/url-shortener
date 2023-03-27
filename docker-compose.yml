@@ -10,7 +10,7 @@ services:
     env_file:
       ./url_shortener/.env
     healthcheck:
-      test: ["CMD-SHELL", "sh -c 'pg_isready -U url_shortener_user -d url_shortener'"]
+      test: ["CMD-SHELL", "sh -c 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}'"]
       interval: 10s
       timeout: 3s
       retries: 3
